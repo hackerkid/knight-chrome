@@ -1,0 +1,104 @@
+<!doctype html>
+<style type="text/css">
+	#mainPopup {
+		padding: 10px;
+		height: 400px;
+		width: 400px;
+		font-family: Helvetica, Ubuntu, Arial, sans-serif;
+		border-width: 3px;
+		border-color: royalblue;
+	}
+
+	h1 {
+		font-size: 2em;
+	}
+
+	
+	#total_reports {
+		font-size: 16px;
+	}
+
+	.fake-news-status {
+  		display:block;
+  		height: 80px;
+  		width: 80px;
+  		border-radius: 50%;
+  		color: white;
+	}
+
+
+	.fake-news-status.true{
+		background-color: green;
+	}
+
+	.fake-news-status.mostly-true{
+		background-color: lightgreen;
+	}
+
+	.fake-news-status.mostly-fake{
+		background-color: yellow;
+	}
+	
+	.fake-news-status.fake{
+		background-color: red;
+	}
+
+	.knight {
+		margin-top: -20px;
+		font-size: 20px;
+	}
+
+	#report-btn {
+		font-family: Arial;
+		color: #ffffff;
+		font-size: 14px;
+		background: #fc0000;
+		padding: 10px 20px 10px 20px;
+		text-decoration: none;
+		position: relative;
+		top: 5px;
+	}
+
+	#report-btn:hover {
+		background: #fc3c3c;
+		text-decoration: none;
+	}
+
+	#message-from-server {
+		color: darkgreen;
+		font-size: 18px;
+		position: relative;
+		top: 5px;
+	}
+
+	#more-details {
+		color: skyblue;
+		font-size: 16px;
+	}
+
+	h3 {
+		color: skyblue;
+	}
+
+
+
+</style>
+
+<div id="mainPopup">
+	<div class="knight"><h1>Knight</h1></div>
+	<div id="article-info">
+		<div class="fake-news-status"></div>
+		<div><a target="_blank" id="more-details">See the discussion</a></div>
+		<button id="report-btn">Report Fake</button>
+		<div id="message-from-server"></div>
+		<h3>Total reports</h3>
+		<div id="total_reports"></div>
+		<h3>Machine Learning</h3>
+		<div id="ml_score"></div>
+		<h3>Grammar and spell check</h3>
+		<div id="grammar_mismatch"></div>
+		<h3>Summary</h3>
+		<div id="summary"></div>
+	</div>
+</div>
+<script src="popup.js"></script>
