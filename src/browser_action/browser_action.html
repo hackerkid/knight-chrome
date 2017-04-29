@@ -1,21 +1,14 @@
 <!doctype html>
 <style type="text/css">
+
+	body {
+		color:#545454;
+		font-size: 14px;
+	}
 	#mainPopup {
 		padding: 10px;
-		height: 400px;
 		width: 400px;
 		font-family: Helvetica, Ubuntu, Arial, sans-serif;
-		border-width: 3px;
-		border-color: royalblue;
-	}
-
-	h1 {
-		font-size: 2em;
-	}
-
-	
-	#total_reports {
-		font-size: 16px;
 	}
 
 	.fake-news-status {
@@ -44,24 +37,7 @@
 	}
 
 	.knight {
-		margin-top: -20px;
 		font-size: 20px;
-	}
-
-	#report-btn {
-		font-family: Arial;
-		color: #ffffff;
-		font-size: 14px;
-		background: #fc0000;
-		padding: 10px 20px 10px 20px;
-		text-decoration: none;
-		position: relative;
-		top: 5px;
-	}
-
-	#report-btn:hover {
-		background: #fc3c3c;
-		text-decoration: none;
 	}
 
 	#message-from-server {
@@ -71,25 +47,47 @@
 		top: 5px;
 	}
 
+
+	#discuss-icon {
+		max-width: 30px;
+		position: relative;
+		top: 8px;
+		margin-right: 5px;
+	}
+
+	#report-icon {
+		max-width: 30px;
+		position: relative;
+		top: 8px;
+		margin-right: 5px;
+	}
+
+	#report-btn {
+		position: relative;
+		top: 5px;
+		cursor: pointer;
+		cursor: hand;
+	}
+
 	#more-details {
-		color: skyblue;
-		font-size: 16px;
+		text-decoration: none;
+		color:#545454;
 	}
 
-	h3 {
-		color: skyblue;
+	#status-image {
+		max-inline-size: 30px;
+		position: relative;
+		top: 5px;
+		padding-right: 5px;
 	}
-
-
 
 </style>
 
 <div id="mainPopup">
-	<div class="knight"><h1>Knight</h1></div>
+	<h1 id="knight"><img id="status-image"></img>Knight</h1>
 	<div id="article-info">
-		<div class="fake-news-status"></div>
-		<div><a target="_blank" id="more-details">See the discussion</a></div>
-		<button id="report-btn">Report Fake</button>
+		<div><img id="discuss-icon" src="discuss2.png"><a target="_blank" id="more-details">See the discussion</a></div>
+		<div id="report-btn"><img id="report-icon"src="report.png">Report Fake</div>
 		<div id="message-from-server"></div>
 		<h3>Total reports</h3>
 		<div id="total_reports"></div>
