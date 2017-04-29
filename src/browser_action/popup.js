@@ -61,7 +61,7 @@ function fetch_article_info(url) {
        	document.getElementById("grammar_mismatch").innerHTML = response.grammar_mismatch  + " mismatches";
         var grammar_offset = get_grammar_offset(response.grammar_mismatch);
         var score = response.total_reports * 10 + response.ml_score * 100 + grammar_offset;
-        var news_status = get_news_status_from_score(score, ml_score);
+        var news_status = get_news_status_from_score(score, response.ml_score);
         var elm = document.getElementsByClassName("fake-news-status");
         elm[0].classList.add(news_status);
         document.getElementById("more-details").href = "http://localhost:5000/info?url=" + url;
