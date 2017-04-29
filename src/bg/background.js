@@ -1,3 +1,5 @@
+var server_url = chrome.app.getDetails().homepage_url
+
 chrome.runtime.onMessage.addListener(function(request, sender, callback) {
     if (request.action == "xhttp") {
         var xhttp = new XMLHttpRequest();
@@ -22,7 +24,7 @@ function set_icon(tab) {
     var url = tab.url;
     console.log(url);
     var http = new XMLHttpRequest();
-    var api_url = "http://localhost:5000/api/article/info";
+    var api_url = server_url + "/api/article/info";
     var params = "url=" + url;
     http.open("POST", api_url, true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -45,5 +47,7 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-    set_icon(tab);
+    if(changeInfo.url) {
+        set_icon(tab);
+    }
 });

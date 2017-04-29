@@ -1,8 +1,9 @@
+var server_url = chrome.app.getDetails().homepage_url
 function report_url(url) {
     chrome.runtime.sendMessage({
         method: 'POST',
         action: 'xhttp',
-        url: 'http://localhost:5000/api/report/add',
+        url: server_url + '/api/report/add',
         data: "url=" + url
     }, function(responseText) {
     	document.getElementById("message-from-server").innerHTML = responseText;
@@ -13,7 +14,7 @@ function fetch_article_info(url) {
     chrome.runtime.sendMessage({
         method: 'POST',
         action: 'xhttp',
-        url: 'http://localhost:5000/api/article/info',
+        url: server_url + '/api/article/info',
         data: "url=" + url
     }, function(response) {
         response = JSON.parse(response);
@@ -22,7 +23,7 @@ function fetch_article_info(url) {
        	document.getElementById("summary").innerHTML = response.summary;
        	document.getElementById("grammar_mismatch").innerHTML = "<b>" + response.grammar_mismatch  + "</b> mismatches";
         document.getElementById("status-image").src = "../../icons/" + response.news_status + ".png";
-        document.getElementById("more-details").href = "http://localhost:5000/info?url=" + url;
+        document.getElementById("more-details").href = server_url + "/info?url=" + url;
     });
 }
 
